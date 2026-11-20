@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scuderia Ferrari F1 - Official Fan Page</title>
+    <!-- Google Fonts & FontAwesome for Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --ferrari-red: #ff2800;
+            --ferrari-dark-red: #cc0000;
+            --ferrari-yellow: #ffeb00;
+            --dark-bg: #0b0b0b;
+            --card-bg: #161616;
+            --text-light: #ffffff;
+            --text-gray: #aaaaaa;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--dark-bg);  
+            color: var(--text-light);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .brand {
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(11, 11, 11, 0.95);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            z-index: 1000;
+            border-bottom: 2px solid var(--ferrari-red);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--ferrari-red);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            text-transform: uppercase;
+        }
+
+        nav ul li a:hover {
+            color: var(--ferrari-red);
+        }
+
+        /* Hamburger Menu for Mobile */
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        /* --- SECTION 1: HERO --- */
+        #hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(11,11,11,1)), 
+                        url('https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=1920&q=80') center/cover no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        #hero h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        #hero h1 span {
+            color: var(--ferrari-red);
+            text-shadow: 0 0 20px rgba(255, 40, 0, 0.6);
+        }
+
+        #hero p {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--ferrari-red);
+            color: var(--text-light);
+            padding: 12px 30px;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            text-decoration: none;
+            text-transform: uppercase;
+            border-radius: 4px;
+            transition: var(--transition);
+            box-shadow: 0 0 15px rgba(255, 40, 0, 0.4);
+        }
+
+        .btn:hover {
+            background: var(--ferrari-dark-red);
+            transform: translateY(-3px);
+            box-shadow: 0 0 25px rgba(255, 40, 0, 0.8);
+        }
+
+        /* --- SECTION 2: ABOUT --- */
+        #about {
+            padding: 100px 50px;
+            background: var(--dark-bg);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+        }
+
+        .about-content {
+            flex: 1;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            width: 60px;
+            height: 4px;
+            background: var(--ferrari-red);
+        }
+
+        .about-content p {
+            color: var(--text-gray);
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .about-image {
+            flex: 1;
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            border: 2px solid #222;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+        }
+
+        /* --- SECTION 3: DRIVERS --- */
+        #drivers {
+            padding: 100px 50px;
+            background: #111;
+            text-align: center;
+        }
+
+        .drivers-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+
+        .driver-card {
+            background: var(--card-bg);
+            width: 320px;
+            border-radius: 10px;
+            overflow: hidden;
+            border-top: 4px solid var(--ferrari-red);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            transition: var(--transition);
+        }
+
+        .driver-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(255, 40, 0, 0.3);
+        }
+
+        .driver-img {
+            height: 250px;
+            background: #222;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .driver-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .driver-number {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--ferrari-yellow);
+            background: rgba(0,0,0,0.7);
+            padding: 0 10px;
+            border-radius: 4px;
+        }
+
+        .driver-info {
+            padding: 25px;
+            text-align: left;
+        }
+
+        .driver-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+
+        .driver-info span {
+            color: var(--ferrari-red);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        /* --- SECTION 4: THE CAR --- */
+        #car {
+            padding: 100px 50px;
+            background: linear-gradient(135deg, var(--dark-bg) 0%, #1a0200 100%);
+            text-align: center;
+        }
+
+        .car-showcase {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 50px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+            text-align: left;
+        }
+
+        .car-details {
+            flex: 1;
+            max-width: 500px;
+        }
+
+        .car-specs {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .car-specs li {
+            padding: 10px 0;
+            border-bottom: 1px solid #333;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.95rem;
+        }
+
+        .car-specs li span:last-child {
+            color: var(--ferrari-yellow);
+            font-weight: 600;
+        }
+
+        .car-img-box {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .car-img-box img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(255, 40, 0, 0.2);
+        }
+
+        /* --- SECTION 5: FAN ZONE & FOOTER --- */
+        #fanzone {
+            padding: 100px 50px;
+            background: var(--dark-bg);
+            text-align: center;
+        }
+
+        .form-box {
+            max-width: 500px;
+            margin: 40px auto 0;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 10px;
+            border: 1px solid #222;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            text-align: left;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            background: #0b0b0b;
+            border: 1px solid #333;
+            border-radius: 4px;
+            color: var(--text-light);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--ferrari-red);
+        }
+
+        footer {
+            background: #050505;
+            padding: 30px 50px;
+            text-align: center;
+            border-top: 1px solid #222;
+            color: var(--text-gray);
+            font-size: 0.85rem;
+        }
+
+        /* --- RESPONSIVE DESIGN (HP & TABLET) --- */
+        @media (max-width: 992px) {
+            header {
+                padding: 15px 20px;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            nav ul {
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: rgba(11, 11, 11, 0.98);
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+                padding: 20px 0;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+                border-bottom: 2px solid var(--ferrari-red);
+            }
+
+            nav ul.active {
+                max-height: 300px;
+            }
+
+            #hero h1 {
+                font-size: 2.2rem;
+            }
+
+            #about, .car-showcase {
+                flex-direction: column;
+                padding: 60px 20px;
+            }
+
+            #drivers, #car, #fanzone {
+                padding: 60px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <header>
+        <div class="logo">
+            <i class="fa-solid fa-flag-checkered" style="color: var(--ferrari-red);"></i> SCUDERIA <span>FERRARI</span>
+        </div>
+        <div class="menu-toggle" id="mobile-menu">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+        <nav>
+            <ul id="nav-list">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#drivers">Drivers</a></li>
+                <li><a href="#car">The Car</a></li>
+                <li><a href="#fanzone">Fan Zone</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- SECTION 1: HERO -->
+    <section id="hero">
+        <h1><span>#Tifosi</span> Never Give Up</h1>
+        <p>Rasakan kecepatan, gairah, dan sejarah gemilang tim balap paling legendaris di ajang Formula 1.</p>
+        <a href="#about" class="btn">Jelajahi Tim</a>
+    </section>
+
+    <!-- SECTION 2: ABOUT -->
+    <section id="about">
+        <div class="about-content">
+            <h2 class="section-title">Legenda Balap F1</h2>
+            <p>Scuderia Ferrari adalah divisi balap dari produsen mobil mewah asal Italia, Ferrari, dan merupakan tim tertua serta paling sukses dalam sejarah Kejuaraan Dunia Formula 1 FIA.</p>
+            <p>Berdiri di Maranello, tim ini membawa semangat "Cavallino Rampante" (Kuda Jingkrak) ke sirkuit di seluruh penjuru dunia dengan dukungan jutaan Tifosi setia.</p>
+            <a href="#drivers" class="btn">Lihat Pebalap</a>
+        </div>
+        <div class="about-image">
+            <img src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?w=800&q=80" alt="Ferrari Pit Stop">
+        </div>
+    </section>
+
+    <!-- SECTION 3: DRIVERS -->
+    <section id="drivers">
+        <h2 class="section-title">Driver Line-Up</h2>
+        <p style="color: var(--text-gray); margin-top: 10px;">Kombinasi talenta luar biasa di balik kemudi merah legendaris.</p>
+        
+        <div class="drivers-container">
+            <!-- Driver 1 -->
+            <div class="driver-card">
+                <div class="driver-img">
+                    <span class="driver-number">16</span>
+                    <img src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=600&q=80" alt="Charles Leclerc">
+                </div>
+                <div class="driver-info">
+                    <span>Monaco</span>
+                    <h3>Charles Leclerc</h3>
+                    <p style="color: var(--text-gray); font-size: 0.85rem; margin-top: 5px;">Pebalap andalan dengan kecepatan murni dan ketajaman di babak kualifikasi.</p>
+                </div>
+            </div>
+
+            <!-- Driver 2 -->
+            <div class="driver-card">
+                <div class="driver-img">
+                    <span class="driver-number">55</span>
+                    <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=600&q=80" alt="Carlos Sainz">
+                </div>
+                <div class="driver-info">
+                    <span>Spain</span>
+                    <h3>Carlos Sainz</h3>
+                    <p style="color: var(--text-gray); font-size: 0.85rem; margin-top: 5px;">Konsistensi tingkat tinggi, kecerdasan taktik balap, dan determinasi baja.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: THE CAR -->
+    <section id="car">
+        <h2 class="section-title">The Charger: SF-24</h2>
+        <div class="car-showcase">
+            <div class="car-img-box">
+                <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800&q=80" alt="Ferrari F1 Car">
+            </div>
+            <div class="car-details">
+                <h3 style="font-size: 1.8rem; margin-bottom: 15px;">Inovasi Tanpa Kompromi</h3>
+                <p style="color: var(--text-gray);">Dirancang untuk menaklukkan setiap tikungan dengan aerodinamika agresif dan mesin hybrid berperforma tinggi.</p>
+                
+                <ul class="car-specs">
+                    <li><span>Chassis</span> <span>Carbon-composite honeycomb</span></li>
+                    <li><span>Power Unit</span> <span>1.6L V6 Turbo Hybrid</span></li>
+                    <li><span>Top Speed</span> <span>> 350 km/h</span></li>
+                    <li><span>Gearbox</span> <span>Ferrari 8-speed semi-automatic</span></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: FAN ZONE (CONTACT & FOOTER) -->
+    <section id="fanzone">
+        <h2 class="section-title">Join The Tifosi</h2>
+        <p style="color: var(--text-gray); margin-top: 10px;">Dapatkan update eksklusif langsung dari garasi Scuderia Ferrari.</p>
+
+        <div class="form-box">
+            <form>
+                <div class="form-group">
+                    <label for="name">Nama Lengkap</label>
+                    <input type="text" id="name" placeholder="Masukkan nama kamu" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Alamat Email</label>
+                    <input type="email" id="email" placeholder="nama@email.com" required>
+                </div>
+                <button type="submit" class="btn" style="width: 100%; cursor: pointer;">Gabung Fan Club</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Scuderia Ferrari Fan Page. All rights reserved. Designed with passion for F1.</p>
+    </footer>
+
+    <!-- JAVASCRIPT FOR MOBILE MENU -->
+    <script>
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navList = document.getElementById('nav-list');
+
+        mobileMenu.addEventListener('click', () => {
+            navList.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
